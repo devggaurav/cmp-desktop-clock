@@ -61,14 +61,18 @@ fun AnimatedCounter(
                     transitionSpec =
                     { slideInVertically { it } togetherWith slideOutVertically { -it } }
                 ) { txt ->
-                    Text(text = txt.toString(), style = style, softWrap = false)
+                    Text(text = txt.toString(), style = style, softWrap = false,
+
+                    )
                 }
             } else {
                 AnimatedContent(targetState = char,
                     transitionSpec =
                     { slideInVertically { -it } togetherWith slideOutVertically { it } }
                 ) { txt ->
-                    Text(text = txt.toString(), style = style, softWrap = false)
+                    Text(text = txt.toString(), style = style, softWrap = false
+                    ,
+                    )
                 }
 
             }
