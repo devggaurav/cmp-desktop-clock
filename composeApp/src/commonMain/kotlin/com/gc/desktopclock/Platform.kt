@@ -1,7 +1,9 @@
 package com.gc.desktopclock
 
-interface Platform {
-    val name: String
+enum class Platform {
+    Android,
+    IOS,
+    Desktop
 }
 
 expect fun getPlatform(): Platform
