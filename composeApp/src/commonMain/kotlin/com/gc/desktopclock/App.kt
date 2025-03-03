@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.sp
 import com.gc.desktopclock.presentation.common.AnimatedCounter
 import com.gc.desktopclock.presentation.common.FontType
 import com.gc.desktopclock.presentation.common.ItimFontFamily
@@ -66,9 +67,10 @@ fun App() {
                 count,
                 style = TextStyle(
                     color = MaterialTheme.colorScheme.background,
-                    fontSize = MaterialTheme.typography.headlineLarge.fontSize,
+                    fontSize = 35.sp,
                     fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                    fontFamily = PacificoFontFamily()
+                    fontFamily = PacificoFontFamily(),
+
 
                 )
             )
