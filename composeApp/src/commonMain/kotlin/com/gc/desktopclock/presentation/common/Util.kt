@@ -34,3 +34,4 @@ fun OverlockFontFamily(fontType: FontType = FontType.NORMAL) = when(fontType){
     FontType.BOLD_ITALIC -> FontFamily(Font(Res.font.Overlock_BoldItalic))
     FontType.SEMI_BOLD -> FontFamily(Font(Res.font.Overlock_Black))
 }
+

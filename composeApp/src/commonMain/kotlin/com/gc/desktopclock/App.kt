@@ -26,17 +26,33 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import desktopclock.composeapp.generated.resources.Res
 import desktopclock.composeapp.generated.resources.compose_multiplatform
 import kotlinx.coroutines.delay
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        var count by remember { mutableStateOf(0) }
+        var count by remember { mutableStateOf("") }
 
         LaunchedEffect(Unit) {
             while (true) {
-                delay(1000) // Delay of 1 second
-                count++
+                val now: Instant = Clock.System.now()
+                val thisTime = now.toLocalDateTime(TimeZone.currentSystemDefault()).time
+                val milliseconds = now.toEpochMilliseconds() % 1000
+
+                count = "${thisTime.hour.toString().padStart(2, '0')}:${
+                    thisTime.minute.toString().padStart(2, '0')
+                }:${
+                    thisTime.second.toString().padStart(2, '0')
+                }"
+
+
+
+                delay(100) // Update every 100ms for smooth updates
             }
         }
 
@@ -46,12 +62,13 @@ fun App() {
         ) {
 
 
-            AnimatedCounter(count,
+            AnimatedCounter(
+                count,
                 style = TextStyle(
                     color = MaterialTheme.colorScheme.background,
                     fontSize = MaterialTheme.typography.headlineLarge.fontSize,
                     fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                    fontFamily = OverlockFontFamily(FontType.BOLD_ITALIC)
+                    fontFamily = PacificoFontFamily()
 
                 )
             )

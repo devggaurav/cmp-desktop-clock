@@ -27,7 +27,7 @@ import androidx.compose.ui.text.TextStyle
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AnimatedCounter(
-    count: Int,
+    count: String,
     modifier: Modifier = Modifier,
     style: TextStyle = MaterialTheme.typography.headlineLarge,
     increment: Boolean = true
