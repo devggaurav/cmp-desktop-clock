@@ -3,6 +3,7 @@ package com.gc.desktopclock
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -47,7 +48,9 @@ import kotlinx.datetime.toLocalDateTime
 @Preview
 fun App() {
     MaterialTheme {
-        var count by remember { mutableStateOf("") }
+        var seconds by remember { mutableStateOf("") }
+        var mins by remember { mutableStateOf("") }
+        var hours by remember { mutableStateOf("") }
 
         LaunchedEffect(Unit) {
             while (true) {
@@ -55,11 +58,9 @@ fun App() {
                 val thisTime = now.toLocalDateTime(TimeZone.currentSystemDefault()).time
                 val milliseconds = now.toEpochMilliseconds() % 1000
 
-                count = "${thisTime.hour.toString().padStart(2, '0')}:${
-                    thisTime.minute.toString().padStart(2, '0')
-                }:${
-                    thisTime.second.toString().padStart(2, '0')
-                }"
+                hours = thisTime.hour.toString().padStart(2, '0')
+                mins = thisTime.minute.toString().padStart(2, '0')
+                seconds = thisTime.second.toString().padStart(2, '0')
 
 
 
@@ -72,7 +73,7 @@ fun App() {
             contentAlignment = Alignment.Center
         ) {
 
-            Row {
+            Row(horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.CenterVertically) {
 
                 Box(
                     modifier = Modifier.wrapContentSize()
@@ -80,7 +81,41 @@ fun App() {
                     contentAlignment = Alignment.Center
                 ) {
                     AnimatedCounter(
-                        count,
+                        hours,
+                        style = TextStyle(
+                            color = MaterialTheme.colorScheme.background,
+                            fontSize = 35.sp,
+                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
+                            fontFamily = PacificoFontFamily(),
+
+
+                            )
+                    )
+                }
+                Box(
+                    modifier = Modifier.wrapContentSize()
+                        .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AnimatedCounter(
+                        mins,
+                        style = TextStyle(
+                            color = MaterialTheme.colorScheme.background,
+                            fontSize = 35.sp,
+                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
+                            fontFamily = PacificoFontFamily(),
+
+
+                            )
+                    )
+                }
+                Box(
+                    modifier = Modifier.wrapContentSize()
+                        .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AnimatedCounter(
+                        seconds,
                         style = TextStyle(
                             color = MaterialTheme.colorScheme.background,
                             fontSize = 35.sp,
