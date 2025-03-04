@@ -76,12 +76,12 @@ fun AnalogClock() {
 
             // Draw Hour Hand
             rotate(degrees = (hour * 30 + minute * 0.5f)) {
-                drawLine(color = darkRed, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 6.dp.toPx())
+                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 6.dp.toPx())
             }
 
             // Draw Minute Hand
             rotate(degrees = ((minute * 6).toFloat())) {
-                drawLine(color = darkRed, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 5.dp.toPx())
+                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 5.dp.toPx())
             }
 
             // Draw Second Hand
