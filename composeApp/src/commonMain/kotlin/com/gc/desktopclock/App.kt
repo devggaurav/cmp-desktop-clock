@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gc.desktopclock.presentation.common.AnalogClock
 import com.gc.desktopclock.presentation.common.AnimatedCounter
 import com.gc.desktopclock.presentation.common.FontType
 import com.gc.desktopclock.presentation.common.ItimFontFamily
@@ -64,16 +65,20 @@ fun App() {
 
 
 
-                delay(100) // Update every 100ms for smooth updates
+                delay(1000) // Update every 100ms for smooth updates
             }
         }
 
         Box(
             modifier = Modifier.fillMaxSize().background(MatteBlack),
-            contentAlignment = Alignment.Center
-        ) {
 
-            Row(horizontalArrangement = Arrangement.spacedBy(5.dp), verticalAlignment = Alignment.CenterVertically) {
+            ) {
+
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(5.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.align(Alignment.TopCenter)
+            ) {
 
                 Box(
                     modifier = Modifier.wrapContentSize()
@@ -127,6 +132,9 @@ fun App() {
                     )
                 }
             }
+
+
+            AnalogClock()
 
 
         }
