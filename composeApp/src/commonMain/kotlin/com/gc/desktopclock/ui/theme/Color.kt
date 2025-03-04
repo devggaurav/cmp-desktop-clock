@@ -37,3 +37,5 @@ val lavenderBlush = Color(0xFFB6B5D8)
 val Shadow3 = Color(0xff9b86fa)
 
 val errorLight = Color(0xFFBA1A1A)
+
+val darkRed = Color(0xFFdb2f32)

@@ -22,6 +22,8 @@ import com.gc.desktopclock.ui.theme.DesertWhite
 import com.gc.desktopclock.ui.theme.GrayDark4
 import com.gc.desktopclock.ui.theme.JetBlack
 import com.gc.desktopclock.ui.theme.Shadow3
+import com.gc.desktopclock.ui.theme.darkRed
+import com.gc.desktopclock.ui.theme.errorLight
 import com.gc.desktopclock.ui.theme.lavenderBlush
 import com.gc.desktopclock.ui.theme.orange
 import kotlinx.coroutines.delay
@@ -74,12 +76,12 @@ fun AnalogClock() {
 
             // Draw Hour Hand
             rotate(degrees = (hour * 30 + minute * 0.5f)) {
-                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 8.dp.toPx())
+                drawLine(color = darkRed, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 6.dp.toPx())
             }
 
             // Draw Minute Hand
             rotate(degrees = ((minute * 6).toFloat())) {
-                drawLine(color = Shadow3, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 6.dp.toPx())
+                drawLine(color = darkRed, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 5.dp.toPx())
             }
 
             // Draw Second Hand
