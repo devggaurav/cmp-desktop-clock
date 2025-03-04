@@ -10,16 +10,23 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
@@ -54,6 +61,7 @@ fun App() {
         var seconds by remember { mutableStateOf("") }
         var mins by remember { mutableStateOf("") }
         var hours by remember { mutableStateOf("") }
+        var analogClock by remember { mutableStateOf(false) }
 
         LaunchedEffect(Unit) {
             while (true) {
@@ -72,81 +80,111 @@ fun App() {
         }
 
         Column(
-            modifier = Modifier.fillMaxSize().background(MatteBlack),
+            modifier = Modifier.fillMaxSize().heightIn(min = 400.dp).widthIn(min = 300.dp)
+                .background(MatteBlack).statusBarsPadding().navigationBarsPadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Top
 
         ) {
-
             Row(
-                horizontalArrangement = Arrangement.spacedBy(5.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically,
-
-                ) {
-
-                Box(
-                    modifier = Modifier.wrapContentSize()
-                        .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AnimatedCounter(
-                        hours,
-                        style = TextStyle(
-                            color = MaterialTheme.colorScheme.background,
-                            fontSize = 35.sp,
-                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                            fontFamily = PacificoFontFamily(),
-
-
-                            )
-                    )
-                }
-                Box(
-                    modifier = Modifier.wrapContentSize()
-                        .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AnimatedCounter(
-                        mins,
-                        style = TextStyle(
-                            color = MaterialTheme.colorScheme.background,
-                            fontSize = 35.sp,
-                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                            fontFamily = PacificoFontFamily(),
-
-
-                            )
-                    )
-                }
-                Box(
-                    modifier = Modifier.wrapContentSize()
-                        .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AnimatedCounter(
-                        seconds,
-                        style = TextStyle(
-                            color = MaterialTheme.colorScheme.background,
-                            fontSize = 35.sp,
-                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                            fontFamily = PacificoFontFamily(),
-
-
-                            )
-                    )
-                }
-            }
-            Spacer(Modifier.padding(10.dp))
-
-            Box(
-                modifier = Modifier.wrapContentSize()
-                    .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
-                contentAlignment = Alignment.Center
+                modifier = Modifier.fillMaxWidth().padding(start = 10.dp, end = 10.dp)
             ) {
-                AnalogClock()
+                Text(
+                    text = if (analogClock) "Analog Clock" else "Digital Clock",
+                    color = White,
+                    modifier = Modifier
+                )
+                Switch(
+                    checked = analogClock,
+                    onCheckedChange = { analogClock = !analogClock },
+                    colors = SwitchDefaults.colors(
+                        checkedThumbColor = MaterialTheme.colorScheme.primary,
+                        checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
+                        uncheckedThumbColor = White,
+                        uncheckedTrackColor = GrayDark3
+                    ),
+                    modifier = Modifier
+                )
             }
 
+            if (!analogClock) {
 
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(5.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+
+                    ) {
+
+                    Box(
+                        modifier = Modifier.wrapContentSize()
+                            .background(GrayDark3, shape = RoundedCornerShape(20.dp))
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        AnimatedCounter(
+                            hours,
+                            style = TextStyle(
+                                color = MaterialTheme.colorScheme.background,
+                                fontSize = 35.sp,
+                                fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
+                                fontFamily = PacificoFontFamily(),
+
+
+                                )
+                        )
+                    }
+                    Box(
+                        modifier = Modifier.wrapContentSize()
+                            .background(GrayDark3, shape = RoundedCornerShape(20.dp))
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        AnimatedCounter(
+                            mins,
+                            style = TextStyle(
+                                color = MaterialTheme.colorScheme.background,
+                                fontSize = 35.sp,
+                                fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
+                                fontFamily = PacificoFontFamily(),
+
+
+                                )
+                        )
+                    }
+                    Box(
+                        modifier = Modifier.wrapContentSize()
+                            .background(GrayDark3, shape = RoundedCornerShape(20.dp))
+                            .padding(16.dp),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        AnimatedCounter(
+                            seconds,
+                            style = TextStyle(
+                                color = MaterialTheme.colorScheme.background,
+                                fontSize = 35.sp,
+                                fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
+                                fontFamily = PacificoFontFamily(),
+
+
+                                )
+                        )
+                    }
+                }
+            } else {
+                Spacer(Modifier.padding(10.dp))
+
+                Box(
+                    modifier = Modifier.wrapContentSize()
+                        .background(GrayDark3, shape = RoundedCornerShape(20.dp)).padding(16.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    AnalogClock()
+                }
+
+
+            }
         }
 
 
