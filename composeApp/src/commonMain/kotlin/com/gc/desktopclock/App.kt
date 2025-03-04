@@ -42,6 +42,7 @@ import com.gc.desktopclock.ui.theme.GrayDark1
 import com.gc.desktopclock.ui.theme.GrayDark2
 import com.gc.desktopclock.ui.theme.GrayDark3
 import com.gc.desktopclock.ui.theme.MatteBlack
+import com.gc.desktopclock.ui.theme.tertiaryDarkMediumContrast
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 

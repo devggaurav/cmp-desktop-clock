@@ -22,3 +22,18 @@ val GrayDark2 = Color(0xFF5F6060) // Medium Dark
 val GrayDark3 = Color(0xFF4F5050) // Darker
 val GrayDark4 = Color(0xFF3F4040) // Very Dark
 val GrayDark5 = Color(0xFF2F3030) // Almost Black
+val tertiaryDarkMediumContrast = Color(0xFFE1C0E5)
+val DeepSkyBlue = Color(0xFF345284)
+
+
+val teal = Color(0xFF008080)
+val lightBlue = Color(0xFFADD8E6)
+val orange = Color(0xFFFFA500)
+val DesertWhite = Color(0xFFF7F7F7)
+val LightPurple = Color(0xFFC4C3E3)
+val DarkGray = Color(0xFF504E76)
+val lavenderBlush = Color(0xFFB6B5D8)
+
+val Shadow3 = Color(0xff9b86fa)
+
+val errorLight = Color(0xFFBA1A1A)

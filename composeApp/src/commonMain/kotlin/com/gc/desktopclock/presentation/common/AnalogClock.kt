@@ -17,6 +17,13 @@ import androidx.compose.ui.graphics.drawscope.DrawStyle
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.unit.dp
+import com.gc.desktopclock.ui.theme.DeepSkyBlue
+import com.gc.desktopclock.ui.theme.DesertWhite
+import com.gc.desktopclock.ui.theme.GrayDark4
+import com.gc.desktopclock.ui.theme.JetBlack
+import com.gc.desktopclock.ui.theme.Shadow3
+import com.gc.desktopclock.ui.theme.lavenderBlush
+import com.gc.desktopclock.ui.theme.orange
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
@@ -49,7 +56,7 @@ fun AnalogClock() {
             val radius = size.minDimension / 2.2f
 
             // Draw Clock Face
-            drawCircle(color = Color.White, radius = radius, center = center, style = Stroke(width = 6.dp.toPx()))
+            drawCircle(color = Color.White, radius = radius, center = center, style = Stroke(width = 5.dp.toPx()))
 
             // Draw Hour Markers
             for (i in 0 until 12) {
@@ -62,26 +69,26 @@ fun AnalogClock() {
                     center.x + radius * cos(angle),
                     center.y + radius * sin(angle)
                 )
-                drawLine(color = Color.Gray, start = start, end = end, strokeWidth = 4.dp.toPx())
+                drawLine(color = Color.White, start = start, end = end, strokeWidth = 3.dp.toPx())
             }
 
             // Draw Hour Hand
             rotate(degrees = (hour * 30 + minute * 0.5f)) {
-                drawLine(color = Color.White, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 8.dp.toPx())
+                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 8.dp.toPx())
             }
 
             // Draw Minute Hand
             rotate(degrees = ((minute * 6).toFloat())) {
-                drawLine(color = Color.White, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 6.dp.toPx())
+                drawLine(color = Shadow3, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 6.dp.toPx())
             }
 
             // Draw Second Hand
             rotate(degrees = ((second * 6).toFloat())) {
-                drawLine(color = Color.Red, start = center, end = center + Offset(0f, -radius * 0.85f), strokeWidth = 2.dp.toPx())
+                drawLine(color = DesertWhite, start = center, end = center + Offset(0f, -radius * 0.85f), strokeWidth = 2.dp.toPx())
             }
 
             // Draw Center Dot
-            drawCircle(color = Color.Red, radius = 6.dp.toPx(), center = center)
+            drawCircle(color = GrayDark4, radius = 6.dp.toPx(), center = center)
         }
     }
 }
