@@ -6,6 +6,7 @@ package com.gc.desktopclock.presentation.common
 // Copyright (c) 2025 CFA. All rights reserved.
 //
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.*
@@ -61,10 +62,11 @@ fun ReverseCountdownTimer() {
                     value = inputHours,
                     onValueChange = { inputHours = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp),
+                    modifier = Modifier.width(50.dp).border(1.dp, Color.White),
                     textStyle = TextStyle(
                         color = Color.White
-                    )
+                    ),
+
                 )
                 Text("h ",
                     color = Color.White)
@@ -73,7 +75,7 @@ fun ReverseCountdownTimer() {
                     value = inputMinutes,
                     onValueChange = { inputMinutes = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp),
+                    modifier = Modifier.width(50.dp).border(1.dp, Color.White),
                     textStyle = TextStyle(
                         color = Color.White
                     )
@@ -85,7 +87,7 @@ fun ReverseCountdownTimer() {
                     value = inputSeconds,
                     onValueChange = { inputSeconds = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp),
+                    modifier = Modifier.width(50.dp).border(1.dp, Color.White),
                     textStyle = TextStyle(
                         color = Color.White
                     )
