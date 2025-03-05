@@ -37,6 +37,7 @@ import com.gc.desktopclock.presentation.common.FontType
 import com.gc.desktopclock.presentation.common.ItimFontFamily
 import com.gc.desktopclock.presentation.common.OverlockFontFamily
 import com.gc.desktopclock.presentation.common.PacificoFontFamily
+import com.gc.desktopclock.presentation.common.ReverseCountdownTimer
 import com.gc.desktopclock.ui.theme.GRAY
 import com.gc.desktopclock.ui.theme.GrayDark1
 import com.gc.desktopclock.ui.theme.GrayDark2
@@ -186,6 +187,8 @@ fun App() {
 
 
             }
+
+            ReverseCountdownTimer()
         }
 
 
