@@ -79,6 +79,7 @@ fun ReverseCountdownTimer() {
                     ),
 
                     )
+                Spacer(modifier = Modifier.width(5.dp))
                 Text(
                     "h ",
                     color = Color.White,
@@ -98,6 +99,7 @@ fun ReverseCountdownTimer() {
                         fontFamily = PacificoFontFamily()
                     ),
                 )
+                Spacer(modifier = Modifier.width(5.dp))
                 Text(
                     "m ",
                     color = Color.White,
@@ -117,6 +119,7 @@ fun ReverseCountdownTimer() {
                         fontFamily = PacificoFontFamily()
                     ),
                 )
+                Spacer(modifier = Modifier.width(5.dp))
                 Text(
                     "s",
                     color = Color.White,
