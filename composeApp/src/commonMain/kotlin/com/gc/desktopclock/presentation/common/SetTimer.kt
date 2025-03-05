@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.gc.desktopclock.ui.theme.GrayDark2
 import com.gc.desktopclock.ui.theme.GrayDark3
 import kotlinx.coroutines.delay
@@ -83,6 +84,7 @@ fun ReverseCountdownTimer() {
                 Text(
                     "h ",
                     color = Color.White,
+                    fontSize = 18.sp,
                     fontFamily = PacificoFontFamily()
                 )
 
@@ -103,6 +105,7 @@ fun ReverseCountdownTimer() {
                 Text(
                     "m ",
                     color = Color.White,
+                    fontSize = 18.sp,
                     fontFamily = PacificoFontFamily()
                 )
 
@@ -123,6 +126,7 @@ fun ReverseCountdownTimer() {
                 Text(
                     "s",
                     color = Color.White,
+                    fontSize = 18.sp,
                     fontFamily = PacificoFontFamily()
                 )
             }
