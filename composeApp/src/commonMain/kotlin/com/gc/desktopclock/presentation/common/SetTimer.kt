@@ -12,6 +12,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 
@@ -46,7 +48,8 @@ fun ReverseCountdownTimer() {
         // Timer Display
         Text(
             text = "$hours:$minutes:$seconds",
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineLarge,
+            color = Color.White
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -58,25 +61,37 @@ fun ReverseCountdownTimer() {
                     value = inputHours,
                     onValueChange = { inputHours = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp)
+                    modifier = Modifier.width(50.dp),
+                    textStyle = TextStyle(
+                        color = Color.White
+                    )
                 )
-                Text("h ")
+                Text("h ",
+                    color = Color.White)
 
                 BasicTextField(
                     value = inputMinutes,
                     onValueChange = { inputMinutes = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp)
+                    modifier = Modifier.width(50.dp),
+                    textStyle = TextStyle(
+                        color = Color.White
+                    )
                 )
-                Text("m ")
+                Text("m ",
+                    color = Color.White)
 
                 BasicTextField(
                     value = inputSeconds,
                     onValueChange = { inputSeconds = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp)
+                    modifier = Modifier.width(50.dp),
+                    textStyle = TextStyle(
+                        color = Color.White
+                    )
                 )
-                Text("s")
+                Text("s",
+                    color = Color.White)
             }
         }
 
