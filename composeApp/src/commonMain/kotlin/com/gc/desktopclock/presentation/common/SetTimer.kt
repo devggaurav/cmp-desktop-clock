@@ -6,8 +6,10 @@ package com.gc.desktopclock.presentation.common
 // Copyright (c) 2025 CFA. All rights reserved.
 //
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -16,6 +18,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.gc.desktopclock.ui.theme.GrayDark2
+import com.gc.desktopclock.ui.theme.GrayDark3
 import kotlinx.coroutines.delay
 
 @Composable
@@ -57,43 +61,67 @@ fun ReverseCountdownTimer() {
 
         // Input Fields (only editable when not running)
         if (!isRunning) {
-            Row {
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.Bottom
+            ) {
                 BasicTextField(
                     value = inputHours,
                     onValueChange = { inputHours = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp).border(1.dp, Color.White),
+                    modifier = Modifier.width(50.dp)
+                        .border(1.dp, Color.White, shape = RoundedCornerShape(10.dp))
+                        .background(GrayDark3,shape = RoundedCornerShape(10.dp))
+                        .padding(10.dp),
                     textStyle = TextStyle(
-                        color = Color.White
+                        color = Color.White,
+                        fontFamily = PacificoFontFamily()
                     ),
 
+                    )
+                Text(
+                    "h ",
+                    color = Color.White,
+                    fontFamily = PacificoFontFamily()
                 )
-                Text("h ",
-                    color = Color.White)
 
                 BasicTextField(
                     value = inputMinutes,
                     onValueChange = { inputMinutes = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp).border(1.dp, Color.White),
+                    modifier = Modifier.width(50.dp)
+                        .border(1.dp, Color.White, shape = RoundedCornerShape(10.dp))
+                        .background(GrayDark3,shape = RoundedCornerShape(10.dp))
+                        .padding(10.dp),
                     textStyle = TextStyle(
-                        color = Color.White
-                    )
+                        color = Color.White,
+                        fontFamily = PacificoFontFamily()
+                    ),
                 )
-                Text("m ",
-                    color = Color.White)
+                Text(
+                    "m ",
+                    color = Color.White,
+                    fontFamily = PacificoFontFamily()
+                )
 
                 BasicTextField(
                     value = inputSeconds,
                     onValueChange = { inputSeconds = it.filter { c -> c.isDigit() } },
                     singleLine = true,
-                    modifier = Modifier.width(50.dp).border(1.dp, Color.White),
+                    modifier = Modifier.width(50.dp)
+                        .border(1.dp, Color.White, shape = RoundedCornerShape(10.dp))
+                        .background(GrayDark3,shape = RoundedCornerShape(10.dp))
+                        .padding(10.dp),
                     textStyle = TextStyle(
-                        color = Color.White
-                    )
+                        color = Color.White,
+                        fontFamily = PacificoFontFamily()
+                    ),
                 )
-                Text("s",
-                    color = Color.White)
+                Text(
+                    "s",
+                    color = Color.White,
+                    fontFamily = PacificoFontFamily()
+                )
             }
         }
 
