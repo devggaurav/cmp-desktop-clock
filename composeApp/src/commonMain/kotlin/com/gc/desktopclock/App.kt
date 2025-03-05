@@ -96,7 +96,11 @@ fun App() {
                 Text(
                     text = if (analogClock) "Analog Clock" else "Digital Clock",
                     color = White,
-                    modifier = Modifier
+                    modifier = Modifier,
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                        fontWeight = MaterialTheme.typography.headlineLarge.fontWeight),
+                    fontFamily = PacificoFontFamily()
                 )
                 Switch(
                     checked = analogClock,
