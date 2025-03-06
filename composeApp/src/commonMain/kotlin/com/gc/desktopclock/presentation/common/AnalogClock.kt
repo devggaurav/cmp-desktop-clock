@@ -58,7 +58,7 @@ fun AnalogClock() {
             val radius = size.minDimension / 2.2f
 
             // Draw Clock Face
-            drawCircle(color = Color.White, radius = radius, center = center, style = Stroke(width = 5.dp.toPx()))
+            drawCircle(color = Color.White, radius = radius, center = center, style = Stroke(width = 3.dp.toPx()))
 
             // Draw Hour Markers
             for (i in 0 until 12) {
@@ -71,17 +71,17 @@ fun AnalogClock() {
                     center.x + radius * cos(angle),
                     center.y + radius * sin(angle)
                 )
-                drawLine(color = Color.White, start = start, end = end, strokeWidth = 3.dp.toPx())
+                //drawLine(color = Color.White, start = start, end = end, strokeWidth = 3.dp.toPx()) //To draw hour's number or dots
             }
 
             // Draw Hour Hand
             rotate(degrees = (hour * 30 + minute * 0.5f)) {
-                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.5f), strokeWidth = 6.dp.toPx())
+                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.6f), strokeWidth = 6.dp.toPx())
             }
 
             // Draw Minute Hand
             rotate(degrees = ((minute * 6).toFloat())) {
-                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.7f), strokeWidth = 5.dp.toPx())
+                drawLine(color = orange, start = center, end = center + Offset(0f, -radius * 0.8f), strokeWidth = 5.dp.toPx())
             }
 
             // Draw Second Hand
