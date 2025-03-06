@@ -64,7 +64,8 @@ fun ReverseCountdownTimer() {
         Text(
             text = "$hours:$minutes:$seconds",
             style = MaterialTheme.typography.headlineLarge,
-            color = Color.White
+            color = Color.White,
+            fontFamily = PacificoFontFamily()
         )
 
         Spacer(modifier = Modifier.height(16.dp))

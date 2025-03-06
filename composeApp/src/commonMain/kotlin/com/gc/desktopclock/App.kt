@@ -16,8 +16,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -64,6 +67,7 @@ fun App() {
         var mins by remember { mutableStateOf("") }
         var hours by remember { mutableStateOf("") }
         var analogClock by remember { mutableStateOf(false) }
+        val scrollState = rememberScrollState()
 
         LaunchedEffect(Unit) {
             while (true) {
@@ -83,7 +87,7 @@ fun App() {
 
         Column(
             modifier = Modifier.fillMaxSize().heightIn(min = 400.dp).widthIn(min = 300.dp)
-                .background(MatteBlack).statusBarsPadding().navigationBarsPadding(),
+                .background(MatteBlack).statusBarsPadding().navigationBarsPadding().verticalScroll(scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
 
@@ -191,7 +195,9 @@ fun App() {
 
 
             }
-
+            Spacer(Modifier.padding(8.dp))
+            HorizontalDivider(color = White)
+            Spacer(Modifier.padding(8.dp))
             ReverseCountdownTimer()
         }
 
