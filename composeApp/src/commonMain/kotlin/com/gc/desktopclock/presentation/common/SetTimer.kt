@@ -51,6 +51,15 @@ fun ReverseCountdownTimer() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
+        Text(
+            text = "Set Timer",
+            style = MaterialTheme.typography.headlineLarge,
+            color = Color.White,
+            fontFamily = PacificoFontFamily()
+
+        )
+
         // Timer Display
         Text(
             text = "$hours:$minutes:$seconds",
@@ -76,6 +85,7 @@ fun ReverseCountdownTimer() {
                         .padding(10.dp),
                     textStyle = TextStyle(
                         color = Color.White,
+                        fontSize = MaterialTheme.typography.headlineMedium.fontSize,
                         fontFamily = PacificoFontFamily()
                     ),
 
@@ -98,6 +108,7 @@ fun ReverseCountdownTimer() {
                         .padding(10.dp),
                     textStyle = TextStyle(
                         color = Color.White,
+                        fontSize = MaterialTheme.typography.headlineMedium.fontSize,
                         fontFamily = PacificoFontFamily()
                     ),
                 )
@@ -119,6 +130,7 @@ fun ReverseCountdownTimer() {
                         .padding(10.dp),
                     textStyle = TextStyle(
                         color = Color.White,
+                        fontSize = MaterialTheme.typography.headlineMedium.fontSize,
                         fontFamily = PacificoFontFamily()
                     ),
                 )
