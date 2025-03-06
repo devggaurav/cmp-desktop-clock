@@ -92,6 +92,24 @@ fun App() {
             verticalArrangement = Arrangement.Top
 
         ) {
+
+            Row(modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically){
+                Text(
+                    text = "Desktop Clock",
+                    color = White,
+                    modifier = Modifier,
+                    style = TextStyle(
+                        fontSize = 20.sp,
+                        fontWeight = MaterialTheme.typography.headlineLarge.fontWeight),
+                    fontFamily = PacificoFontFamily()
+                )
+            }
+            Spacer(Modifier.padding(8.dp))
+            HorizontalDivider(color = White)
+            Spacer(Modifier.padding(8.dp))
+
             Row(
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically,
