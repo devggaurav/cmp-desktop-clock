@@ -56,6 +56,7 @@ import desktopclock.composeapp.generated.resources.compose_multiplatform
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import kotlinx.datetime.LocalDate
 import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -69,6 +70,9 @@ fun App() {
         var hours by remember { mutableStateOf("") }
         var analogClock by remember { mutableStateOf(false) }
         val scrollState = rememberScrollState()
+
+        val now: Instant = Clock.System.now()
+        val today: LocalDate = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
 
         LaunchedEffect(Unit) {
             while (true) {
@@ -214,6 +218,16 @@ fun App() {
 
 
             }
+
+            Spacer(Modifier.padding(8.dp))
+            Text(
+                text = "${today.dayOfMonth} ${today.month} ${today.year}",
+                style = MaterialTheme.typography.headlineMedium,
+                color = Color.White,
+                fontFamily = ItimFontFamily()
+
+            )
+
             Spacer(Modifier.padding(8.dp))
             HorizontalDivider(color = White)
             Spacer(Modifier.padding(8.dp))
