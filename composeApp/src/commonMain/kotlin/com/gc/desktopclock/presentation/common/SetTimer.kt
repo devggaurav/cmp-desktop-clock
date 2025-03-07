@@ -169,7 +169,11 @@ fun ReverseCountdownTimer() {
                                 (inputSeconds.toIntOrNull() ?: 0)
                         isRunning = totalSeconds > 0
                     }
-                }
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.White,
+                    contentColor = Color.Black
+                )
             ) {
                 Text(if (isRunning) "Pause" else "Start")
             }
@@ -183,7 +187,11 @@ fun ReverseCountdownTimer() {
                     inputHours = "0"
                     inputMinutes = "0"
                     inputSeconds = "0"
-                }
+                },
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color.White,
+                    contentColor = Color.Black
+                )
             ) {
                 Text("Reset")
             }
