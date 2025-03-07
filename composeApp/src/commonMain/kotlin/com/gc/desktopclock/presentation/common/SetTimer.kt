@@ -54,7 +54,7 @@ fun ReverseCountdownTimer() {
     ) {
 
         Text(
-            text = "Set Activity Timer",
+            text = "Set Countdown Timer",
             style = MaterialTheme.typography.headlineLarge,
             color = Color.White,
             fontFamily = PacificoFontFamily()
