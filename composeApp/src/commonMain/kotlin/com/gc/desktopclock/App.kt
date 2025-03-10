@@ -236,11 +236,12 @@ fun App() {
                 fontFamily = ItimFontFamily()
 
             )
-            Box(modifier = Modifier.fillMaxWidth()) {
+            Box(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
                 Icon(
                     painter = painterResource(Res.drawable.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24),
                     contentDescription = "fullscreen_icon",
-                    modifier = Modifier.align(Alignment.BottomEnd)
+                    modifier = Modifier.align(Alignment.BottomEnd),
+                    tint = White
                 )
             }
 
