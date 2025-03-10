@@ -20,8 +20,10 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -53,6 +55,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import desktopclock.composeapp.generated.resources.Res
 import desktopclock.composeapp.generated.resources.compose_multiplatform
+import desktopclock.composeapp.generated.resources.fullscreen
+import desktopclock.composeapp.generated.resources.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
@@ -92,22 +96,26 @@ fun App() {
 
         Column(
             modifier = Modifier.fillMaxSize().heightIn(min = 400.dp).widthIn(min = 300.dp)
-                .background(MatteBlack).statusBarsPadding().navigationBarsPadding().verticalScroll(scrollState).imePadding(),
+                .background(MatteBlack).statusBarsPadding().navigationBarsPadding()
+                .verticalScroll(scrollState).imePadding(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
 
         ) {
 
-            Row(modifier = Modifier.fillMaxWidth(),
+            Row(
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically){
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Text(
                     text = "Desktop Clock",
                     color = White,
                     modifier = Modifier,
                     style = TextStyle(
                         fontSize = 20.sp,
-                        fontWeight = MaterialTheme.typography.headlineLarge.fontWeight),
+                        fontWeight = MaterialTheme.typography.headlineLarge.fontWeight
+                    ),
                     fontFamily = PacificoFontFamily()
                 )
             }
@@ -126,7 +134,8 @@ fun App() {
                     modifier = Modifier,
                     style = TextStyle(
                         fontSize = 20.sp,
-                        fontWeight = MaterialTheme.typography.headlineLarge.fontWeight),
+                        fontWeight = MaterialTheme.typography.headlineLarge.fontWeight
+                    ),
                     fontFamily = PacificoFontFamily()
                 )
                 Switch(
@@ -227,6 +236,13 @@ fun App() {
                 fontFamily = ItimFontFamily()
 
             )
+            Box(modifier = Modifier.fillMaxWidth()) {
+                Icon(
+                    painter = painterResource(Res.drawable.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24),
+                    contentDescription = "fullscreen_icon",
+                    modifier = Modifier.align(Alignment.BottomEnd)
+                )
+            }
 
             Spacer(Modifier.padding(8.dp))
             HorizontalDivider(color = White)
