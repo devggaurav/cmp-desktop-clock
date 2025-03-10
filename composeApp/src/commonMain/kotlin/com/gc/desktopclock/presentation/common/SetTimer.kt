@@ -16,13 +16,17 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gc.desktopclock.ui.theme.GrayDark2
 import com.gc.desktopclock.ui.theme.GrayDark3
+import desktopclock.composeapp.generated.resources.Res
+import desktopclock.composeapp.generated.resources.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24
 import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun ReverseCountdownTimer() {
@@ -195,6 +199,15 @@ fun ReverseCountdownTimer() {
             ) {
                 Text("Reset")
             }
+
+        }
+        Box(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+            Icon(
+                painter = painterResource(Res.drawable.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24),
+                contentDescription = "fullscreen_icon",
+                modifier = Modifier.align(Alignment.BottomEnd),
+                tint = White
+            )
         }
     }
 }
