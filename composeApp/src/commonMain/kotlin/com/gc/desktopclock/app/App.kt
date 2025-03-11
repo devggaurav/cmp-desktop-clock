@@ -32,7 +32,12 @@ fun App() {
                         slideInHorizontally()
                     }
                 ) {
-                    MainScreenView()
+                    MainScreenView(
+                        onCountDownTimerFS = {},
+                        onClockFullScreen = {
+
+                        }
+                    )
                 }
 
 

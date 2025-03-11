@@ -62,7 +62,10 @@ import org.jetbrains.compose.resources.painterResource
 //
 
 @Composable
-fun MainScreenView(){
+fun MainScreenView(
+    onClockFullScreen: () -> Unit = {},
+    onCountDownTimerFS: () -> Unit = {}
+) {
 
     var seconds by remember { mutableStateOf("") }
     var mins by remember { mutableStateOf("") }
@@ -236,7 +239,7 @@ fun MainScreenView(){
                 painter = painterResource(Res.drawable.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24),
                 contentDescription = "fullscreen_icon",
                 modifier = Modifier.align(Alignment.BottomEnd).clickable {
-
+                    onClockFullScreen()
                 },
                 tint = White
             )
@@ -245,7 +248,9 @@ fun MainScreenView(){
         Spacer(Modifier.padding(8.dp))
         HorizontalDivider(color = White)
         Spacer(Modifier.padding(8.dp))
-        ReverseCountdownTimer()
+        ReverseCountdownTimer(onFullScreen = {
+            onCountDownTimerFS()
+        })
     }
 
 }

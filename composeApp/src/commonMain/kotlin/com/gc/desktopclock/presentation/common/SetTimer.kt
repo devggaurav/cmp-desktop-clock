@@ -30,7 +30,7 @@ import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
-fun ReverseCountdownTimer() {
+fun ReverseCountdownTimer(onFullScreen : () -> Unit = {}) {
     var totalSeconds by remember { mutableStateOf(0) }
     var isRunning by remember { mutableStateOf(false) }
     var inputHours by remember { mutableStateOf("0") }
@@ -207,7 +207,7 @@ fun ReverseCountdownTimer() {
                 painter = painterResource(Res.drawable.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24),
                 contentDescription = "fullscreen_icon",
                 modifier = Modifier.align(Alignment.BottomEnd).clickable {
-
+                  onFullScreen()
                 },
                 tint = White
             )
