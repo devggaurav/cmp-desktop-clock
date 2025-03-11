@@ -11,9 +11,16 @@ import kotlinx.serialization.Serializable
 sealed interface Route {
 
     @Serializable
+    data object ClockGraph : Route
+
+    @Serializable
+    data object MainScreen : Route
+
+    @Serializable
     data object ClockFullScreen : Route
 
 
     @Serializable
     data object CountDownTimerFS : Route
+
 }
