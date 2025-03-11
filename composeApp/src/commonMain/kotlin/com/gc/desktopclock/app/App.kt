@@ -8,6 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import com.gc.desktopclock.presentation.ClockFullScreenView
+import com.gc.desktopclock.presentation.TimerFullScreenView
 import com.gc.desktopclock.presentation.main.MainScreenView
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -33,11 +35,45 @@ fun App() {
                     }
                 ) {
                     MainScreenView(
-                        onCountDownTimerFS = {},
+                        onCountDownTimerFS = {
+                            navController.navigate(Route.CountDownTimerFS)
+                        },
                         onClockFullScreen = {
-
+                            navController.navigate(Route.ClockFullScreen)
                         }
                     )
+                }
+
+                composable<Route.ClockFullScreen>(
+                    enterTransition = {
+                        slideInHorizontally { initialOffset ->
+                            initialOffset
+                        }
+                    },
+                    exitTransition = {
+                        slideOutHorizontally { initialOffset ->
+                            initialOffset
+                        }
+                    }
+                ) {
+                    ClockFullScreenView()
+                }
+
+                composable<Route.CountDownTimerFS>(
+                    enterTransition = {
+                        slideInHorizontally { initialOffset ->
+                            initialOffset
+                        }
+                    },
+                    exitTransition = {
+                        slideOutHorizontally { initialOffset ->
+                            initialOffset
+                        }
+                    }
+                ) {
+
+                    TimerFullScreenView()
+
                 }
 
 
