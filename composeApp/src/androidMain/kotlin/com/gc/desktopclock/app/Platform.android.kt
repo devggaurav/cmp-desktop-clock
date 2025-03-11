@@ -1,7 +1,4 @@
-package com.gc.desktopclock
-
-import android.os.Build
-
+package com.gc.desktopclock.app
 
 
 actual fun getPlatform(): Platform = Platform.Android

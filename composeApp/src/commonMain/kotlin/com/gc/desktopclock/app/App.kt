@@ -1,7 +1,5 @@
-package com.gc.desktopclock
+package com.gc.desktopclock.app
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -21,8 +19,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -34,35 +30,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gc.desktopclock.presentation.common.AnalogClock
 import com.gc.desktopclock.presentation.common.AnimatedCounter
-import com.gc.desktopclock.presentation.common.FontType
 import com.gc.desktopclock.presentation.common.ItimFontFamily
-import com.gc.desktopclock.presentation.common.OverlockFontFamily
 import com.gc.desktopclock.presentation.common.PacificoFontFamily
 import com.gc.desktopclock.presentation.common.ReverseCountdownTimer
-import com.gc.desktopclock.ui.theme.GRAY
-import com.gc.desktopclock.ui.theme.GrayDark1
-import com.gc.desktopclock.ui.theme.GrayDark2
 import com.gc.desktopclock.ui.theme.GrayDark3
 import com.gc.desktopclock.ui.theme.MatteBlack
-import com.gc.desktopclock.ui.theme.tertiaryDarkMediumContrast
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 import desktopclock.composeapp.generated.resources.Res
-import desktopclock.composeapp.generated.resources.compose_multiplatform
-import desktopclock.composeapp.generated.resources.fullscreen
 import desktopclock.composeapp.generated.resources.fullscreen_24dp_e8eaed_fill0_wght400_grad0_opsz24
 import kotlinx.coroutines.delay
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
-import kotlinx.datetime.LocalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 

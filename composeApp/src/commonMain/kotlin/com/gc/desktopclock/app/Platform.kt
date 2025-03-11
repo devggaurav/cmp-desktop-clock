@@ -1,4 +1,4 @@
-package com.gc.desktopclock
+package com.gc.desktopclock.app
 
 enum class Platform {
     Android,
