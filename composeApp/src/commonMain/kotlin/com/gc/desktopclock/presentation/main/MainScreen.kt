@@ -74,7 +74,7 @@ fun MainScreenView(
     val seconds by viewModel.seconds.collectAsStateWithLifecycle()
     val mins by viewModel.mins.collectAsStateWithLifecycle()
     val hours by viewModel.hours.collectAsStateWithLifecycle()
-    var analogClock by remember { mutableStateOf(false) }
+    val analogClock by viewModel.analogClock.collectAsStateWithLifecycle()
     val scrollState = rememberScrollState()
 
     val now: Instant = Clock.System.now()
@@ -128,7 +128,7 @@ fun MainScreenView(
             )
             Switch(
                 checked = analogClock,
-                onCheckedChange = { analogClock = !analogClock },
+                onCheckedChange = { viewModel.toggleClockType() },
                 colors = SwitchDefaults.colors(
                     checkedThumbColor = MaterialTheme.colorScheme.primary,
                     checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
