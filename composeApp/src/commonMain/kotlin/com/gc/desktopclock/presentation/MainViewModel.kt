@@ -2,6 +2,7 @@ package com.gc.desktopclock.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.russhwolf.settings.ObservableSettings
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.datetime.Clock
@@ -19,7 +20,7 @@ import kotlinx.coroutines.flow.asStateFlow
 //
 
 
-class MainViewModel : ViewModel() {
+class MainViewModel(val settings: ObservableSettings) : ViewModel() {
 
 
 
