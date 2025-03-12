@@ -86,8 +86,6 @@ fun MainScreenView(
             mins = thisTime.minute.toString().padStart(2, '0')
             seconds = thisTime.second.toString().padStart(2, '0')
 
-
-
             delay(1000) // Update every 100ms for smooth updates
         }
     }
