@@ -38,6 +38,8 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.gc.desktopclock.presentation.MainViewModel
 import com.gc.desktopclock.presentation.common.AnalogClock
 import com.gc.desktopclock.presentation.common.AnimatedCounter
 import com.gc.desktopclock.presentation.common.ItimFontFamily
@@ -54,6 +56,7 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 
 
 //
@@ -64,31 +67,20 @@ import org.jetbrains.compose.resources.painterResource
 @Composable
 fun MainScreenView(
     onClockFullScreen: () -> Unit = {},
-    onCountDownTimerFS: () -> Unit = {}
+    onCountDownTimerFS: () -> Unit = {},
+    viewModel: MainViewModel = koinViewModel()
 ) {
 
-    var seconds by remember { mutableStateOf("") }
-    var mins by remember { mutableStateOf("") }
-    var hours by remember { mutableStateOf("") }
+    val seconds by viewModel.seconds.collectAsStateWithLifecycle()
+    val mins by viewModel.mins.collectAsStateWithLifecycle()
+    val hours by viewModel.hours.collectAsStateWithLifecycle()
     var analogClock by remember { mutableStateOf(false) }
     val scrollState = rememberScrollState()
 
     val now: Instant = Clock.System.now()
     val today: LocalDate = now.toLocalDateTime(TimeZone.currentSystemDefault()).date
 
-    LaunchedEffect(Unit) {
-        while (true) {
-            val now: Instant = Clock.System.now()
-            val thisTime = now.toLocalDateTime(TimeZone.currentSystemDefault()).time
-            val milliseconds = now.toEpochMilliseconds() % 1000
 
-            hours = thisTime.hour.toString().padStart(2, '0')
-            mins = thisTime.minute.toString().padStart(2, '0')
-            seconds = thisTime.second.toString().padStart(2, '0')
-
-            delay(1000) // Update every 100ms for smooth updates
-        }
-    }
 
     Column(
         modifier = Modifier.fillMaxSize().heightIn(min = 400.dp).widthIn(min = 300.dp)
