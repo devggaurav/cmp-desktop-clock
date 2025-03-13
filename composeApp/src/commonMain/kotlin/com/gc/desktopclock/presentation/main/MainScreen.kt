@@ -42,6 +42,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gc.desktopclock.presentation.MainViewModel
 import com.gc.desktopclock.presentation.common.AnalogClock
 import com.gc.desktopclock.presentation.common.AnimatedCounter
+import com.gc.desktopclock.presentation.common.DigitalClockView
 import com.gc.desktopclock.presentation.common.ItimFontFamily
 import com.gc.desktopclock.presentation.common.PacificoFontFamily
 import com.gc.desktopclock.presentation.common.ReverseCountdownTimer
@@ -140,68 +141,7 @@ fun MainScreenView(
         }
 
         if (!analogClock) {
-
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(5.dp),
-                verticalAlignment = Alignment.CenterVertically,
-
-                ) {
-
-                Box(
-                    modifier = Modifier.wrapContentSize()
-                        .background(GrayDark3, shape = RoundedCornerShape(20.dp))
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AnimatedCounter(
-                        hours,
-                        style = TextStyle(
-                            color = MaterialTheme.colorScheme.background,
-                            fontSize = 35.sp,
-                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                            fontFamily = PacificoFontFamily(),
-
-
-                            )
-                    )
-                }
-                Box(
-                    modifier = Modifier.wrapContentSize()
-                        .background(GrayDark3, shape = RoundedCornerShape(20.dp))
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AnimatedCounter(
-                        mins,
-                        style = TextStyle(
-                            color = MaterialTheme.colorScheme.background,
-                            fontSize = 35.sp,
-                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                            fontFamily = PacificoFontFamily(),
-
-
-                            )
-                    )
-                }
-                Box(
-                    modifier = Modifier.wrapContentSize()
-                        .background(GrayDark3, shape = RoundedCornerShape(20.dp))
-                        .padding(16.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    AnimatedCounter(
-                        seconds,
-                        style = TextStyle(
-                            color = MaterialTheme.colorScheme.background,
-                            fontSize = 35.sp,
-                            fontWeight = MaterialTheme.typography.headlineLarge.fontWeight,
-                            fontFamily = PacificoFontFamily(),
-
-
-                            )
-                    )
-                }
-            }
+            DigitalClockView(hours, mins, seconds)
         } else {
             Spacer(Modifier.padding(10.dp))
 
