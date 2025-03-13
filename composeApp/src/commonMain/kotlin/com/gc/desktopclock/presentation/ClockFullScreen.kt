@@ -70,6 +70,15 @@ fun ClockFullScreenView(viewModel: MainViewModel = koinViewModel()) {
 
         }
 
+        Box(
+            modifier = Modifier.fillMaxWidth().weight(1f),
+            contentAlignment = Alignment.Center
+        ) {
+
+
+
+        }
+
 
     }
 
