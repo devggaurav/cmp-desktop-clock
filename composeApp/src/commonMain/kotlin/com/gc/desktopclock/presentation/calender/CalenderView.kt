@@ -27,6 +27,8 @@ import com.gc.desktopclock.presentation.calender.Days.getDaysInMonth
 import com.gc.desktopclock.presentation.calender.Days.getFirstDayOfWeek
 import com.gc.desktopclock.presentation.common.ItimFontFamily
 import com.gc.desktopclock.ui.theme.MatteBlack
+import com.gc.desktopclock.ui.theme.Shadow3
+import com.gc.desktopclock.ui.theme.orange
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.LocalDate
@@ -65,22 +67,35 @@ fun CalenderView() {
 
         )
         Spacer(Modifier.padding(8.dp))
-        LazyVerticalGrid(columns = GridCells.Fixed(7), modifier = Modifier.fillMaxWidth().padding(5.dp)) {
-            items(daysList){
-                Text(text = it, color = Color.White, fontFamily = ItimFontFamily(), textAlign = TextAlign.Center)
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(7),
+            modifier = Modifier.fillMaxWidth().padding(start = 10.dp, end = 10.dp)
+        ) {
+            items(daysList) {
+                Text(
+                    text = it,
+                    color = Color.White,
+                    fontFamily = ItimFontFamily(),
+                    textAlign = TextAlign.Center
+                )
             }
 
             items(days) { day ->
+
                 Text(
                     text = day,
                     modifier = Modifier
                         .padding(8.dp)
                         .size(30.dp)
-                        .background(if (day.isNotEmpty()) Color.LightGray else if (day == today.dayOfMonth.toString()) Color.White else Color.Transparent, shape = CircleShape)
+                        .background(
+                            if (day.isNotEmpty() && day == today.dayOfMonth.toString()) orange else if (day.isNotEmpty()) Color.LightGray else Color.Transparent,
+                            shape = CircleShape
+                        )
                         .wrapContentHeight(Alignment.CenterVertically)
                         .wrapContentWidth(Alignment.CenterHorizontally),
                     textAlign = TextAlign.Center,
-                    fontFamily = ItimFontFamily()
+                    fontFamily = ItimFontFamily(),
+                    color = if (day == today.dayOfMonth.toString()) Color.White else Color.Black
                 )
             }
 
