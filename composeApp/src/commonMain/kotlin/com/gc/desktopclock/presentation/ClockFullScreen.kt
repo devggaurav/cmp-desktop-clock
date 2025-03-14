@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.gc.desktopclock.app.Route
+import com.gc.desktopclock.presentation.calender.CalenderView
 import com.gc.desktopclock.presentation.common.AnalogClock
 import com.gc.desktopclock.presentation.common.DigitalClockView
 import com.gc.desktopclock.presentation.common.ItimFontFamily
@@ -87,13 +88,7 @@ fun ClockFullScreenView(viewModel: MainViewModel = koinViewModel()) {
             contentAlignment = Alignment.Center
         ) {
 
-            Text(
-                text = "${today.dayOfMonth} ${today.month} ${today.year}",
-                style = MaterialTheme.typography.headlineMedium,
-                color = Color.White,
-                fontFamily = ItimFontFamily()
-
-            )
+            CalenderView()
 
         }
 
