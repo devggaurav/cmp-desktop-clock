@@ -61,7 +61,7 @@ fun CalenderView() {
         Spacer(Modifier.padding(8.dp))
         Text(
             text = "${today.month} ${today.year}",
-            style = MaterialTheme.typography.headlineMedium,
+            style = MaterialTheme.typography.headlineSmall,
             color = Color.White,
             fontFamily = ItimFontFamily()
 
