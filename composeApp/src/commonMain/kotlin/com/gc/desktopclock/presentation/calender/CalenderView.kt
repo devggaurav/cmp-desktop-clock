@@ -82,21 +82,23 @@ fun CalenderView() {
 
             items(days) { day ->
 
-                Text(
-                    text = day,
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .size(30.dp)
-                        .background(
-                            if (day.isNotEmpty() && day == today.dayOfMonth.toString()) orange else if (day.isNotEmpty()) Color.LightGray else Color.Transparent,
-                            shape = CircleShape
-                        )
-                        .wrapContentHeight(Alignment.CenterVertically)
-                        .wrapContentWidth(Alignment.CenterHorizontally),
-                    textAlign = TextAlign.Center,
-                    fontFamily = ItimFontFamily(),
-                    color = if (day == today.dayOfMonth.toString()) Color.White else Color.Black
-                )
+                if (day.isNotEmpty()){
+                    Text(
+                        text = day,
+                        modifier = Modifier
+                            .padding(8.dp)
+                            .size(30.dp)
+                            .background(
+                                if (day.isNotEmpty() && day == today.dayOfMonth.toString()) orange else Color.LightGray ,
+                                shape = CircleShape
+                            )
+                            .wrapContentHeight(Alignment.CenterVertically)
+                            .wrapContentWidth(Alignment.CenterHorizontally),
+                        textAlign = TextAlign.Center,
+                        fontFamily = ItimFontFamily(),
+                        color = if (day == today.dayOfMonth.toString()) Color.White else Color.Black
+                    )
+            }
             }
 
 
